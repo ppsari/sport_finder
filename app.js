@@ -8,6 +8,9 @@ var bodyParser = require('body-parser');
 var index = require('./routes/index');
 var venue = require('./routes/venue');
 var search = require('./routes/search');
+var venueA = require('./routes/admin/venue');
+var sport = require('./routes/admin/sport');
+var detail = require('./routes/admin/detail');
 var app = express();
 
 // view engine setup
@@ -25,6 +28,9 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use('/', index);
 app.use('/search', search);
 app.use('/venue', venue);
+app.use('/admin/venue', venueA);
+app.use('/admin/sport', sport);
+app.use('/admin/detail', detail);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
