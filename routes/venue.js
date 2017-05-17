@@ -8,15 +8,13 @@ var db = require('../models');
 router.get('/', function(req, res, next) {
   let venue_id = req.query.venue_id;
   let sport_id = req.query.sport_id;
-  db.Venue.findAll({where: {location:location}, include: {model : db.Sport} }   )
-  .then((venues)=>{
-    venues = venues.filter((venue) => {
-      let idx = -1;
-      if (venue.Sports !== null && typeof venue.Sports !== 'undefined')
-      idx = venue.Sports.findIndex((sp) => sp.name === sport );//end venues.sport
-      if (idx !== -1) return venue.Sports;
-    });//end venues.filter
-    res.render('venueList',{venues});
+  db.Venue.findById(venue_id, include: [{model: db.Sport}])
+  .then((venue)=>{
+    venue.Sport.findById(sport_id, include: [{model: db.Detail}])
+    .then(sport => {
+      // venue.pop()
+      res.render('user-venue', { venue: venue, sport: sport })
+    })
   })
   .catch((err)=>{
     res.send('Location invalid!');

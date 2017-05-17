@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title></title>
+    <%- include partials/head.ejs %>
+  </head>
+  <body>
+    <%- include partials/header.ejs %>
+    <h1><%- venue.name %></h1>
+    <div class="container">
+      <div class="row">
+        <div class="col s4">
+          <!-- <img src="" alt=""> -->gambar lah ya
+        </div>
+        <div class="col s8">
+          <h3><%- sport.name %></h3>
+          <% sport.Detail.forEach(detail => { %>
+            <p>Price: <%- sport.price %></p>
+            <p>Availability: <%- detail.avail %></p>
+            <p>Capacity: <%- detail.capacity %></p>
+          <% }) %>
+
+          <p>Contact: <%- venue.contact %></p>
+          <p>Address: <%- venue.address %></p>
+        </div>
+      </div>
+    </div>
+    <%- include partials/footer.ejs %>
+  </body>
+</html>
