@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title></title>
+    <%- include partials/head.ejs %>
+  </head>
+  <body>
+    <%- include partials/header.ejs %>
+    <h1>Update Venue</h1>
+    <div class="container">
+      <form class="col s12" action="/admin/venue/update/<%= venue.id %>" method="post">
+        <div class="row">
+          <div class="input-field col s12">
+            <input name="name" id="name" type="text" required value="<%= venue.name %>">
+            <label for="name">Venue Name</label>
+          </div>
+        </div>
+        <div class="row">
+          <div class="input-field col s12">
+            <input name="address" id="address" type="text" required  value="<%= venue.address %>">
+            <label for="addrress">Address</label>
+          </div>
+        </div>
+        <div class="row">
+          <div class="input-field col s12">
+            <input name="contact" id="contact" type="text" required  value="<%= venue.contact %>">
+            <label for="contact">Contact</label>
+          </div>
+        </div>
+        <div class="row center-align">
+          <button type="submit" class="btn waves-effect waves-light"/>Update</button>
+        </div>
+      </form>
+    </div>
+    <%- include partials/footer.ejs %>
+  </body>
+</html>

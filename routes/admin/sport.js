@@ -1,6 +1,6 @@
 var express = require('express');
 var router = express.Router();
-var db = require('../models');
+var db = require('../../models');
 
 /* GET users listing. */
 router.get('/', function(req, res, next) {
@@ -9,7 +9,8 @@ router.get('/', function(req, res, next) {
     where: { venue_id: venue_id }
   })
   .then(sports => {
-    res.render('admin-sport', { sports })
+    let breadcrumbs = [{url:'/admin/venue',teks:'Venue'},{url:'#',teks:'Sport'}]
+    res.render('admin-sport', { sports, breadcrumbs })
   })
   .catch(err => {
     res.render('error', {message: "No Venue List Found", error: err })

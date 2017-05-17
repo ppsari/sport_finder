@@ -25,7 +25,8 @@
               <td><%- sport.name %></td>
               <td>
                 <a href="/admin/sport/update/<%- sport.id %>">Update</a>
-                <a href="/admin/sport/delete/<%- sport.id %>" onclick="return confirm("Are you sure?")">Delete</a>
+                <a href="/admin/detail/?sport_id=<%- sport.id %>">View Details</a>
+                <a href="/admin/sport/delete/<%- sport.id %>" onclick="return confirm('Are you sure?')">Delete</a>
               </td>
             </tr>
             <% }) %>
@@ -33,7 +34,7 @@
         </table>
       </div>
       <div class="row">
-        <a href="/admin/venue/insert" class="btn waves-effect waves-light">Create New Sport</a>
+        <a href="/admin/sport/insert?venue_id=<%= sports[0].venue_id%>" class="btn waves-effect waves-light">Create New Sport</a>
       </div>
     </div>
     <%- include partials/footer.ejs %>

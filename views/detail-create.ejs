@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title></title>
+    <%- include partials/head.ejs %>
+  </head>
+  <body>
+    <%- include partials/header.ejs %>
+    <h1>Create Detail for Sport <%- sport_id %></h1>
+    <div class="container">
+      <form class="col s12" action="/admin/detail/insert/?sport_id=<%- sport_id %>" method="post">
+        <div class="row">
+          <div class="input-field col s12">
+            <input value="<%- sport_id %>" id="sport_id" type="hidden" class="validate" name="sport_id">
+          </div>
+        </div>
+        <div class="row">
+          <div class="input-field col s12">
+            <input id="room" type="text" class="validate" required  name="room">
+            <label for="room">Room</label>
+          </div>
+        </div>
+        <div class="row">
+          <div class="input-field col s12">
+            <input id="capacity" type="number" class="validate" min=1 name="capacity">
+            <label for="capacity">Capacity</label>
+          </div>
+        </div>
+        <div class="row">
+          <div class="input-field col s12">
+            <input id="avail" type="text" class="validate" required name="avail">
+            <label for="avail">Availability</label>
+          </div>
+        </div>
+        <div class="row">
+          <div class="input-field col s12">
+            <input id="booked" type="text" class="validate" name="booked">
+            <label for="booked">Booked</label>
+          </div>
+        </div>
+        <div class="row center-align">
+          <button class="btn waves-effect waves-light" type="submit" name="button">Create</button>
+        </div>
+      </form>
+    </div>
+    <%- include partials/footer.ejs %>
+  </body>
+</html>

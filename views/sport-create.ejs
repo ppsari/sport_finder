@@ -8,16 +8,15 @@
     <%- include partials/header.ejs %>
     <h1>Create Sport for Venue <%- venue_id %></h1>
     <div class="container">
-      <form class="col s12">
+      <form class="col s12" action="/admin/sport/insert/?venue_id=<%- venue_id %>" method="post">
         <div class="row">
           <div class="input-field col s12">
-            <input disabled value="<%- venue_id %>" id="venue_id" type="text" class="validate" name="venue_id">
-            <label for="venue_id">Venue ID</label>
+            <input value="<%- venue_id %>" id="venue_id" type="hidden" class="validate" name="venue_id">
           </div>
         </div>
         <div class="row">
           <div class="input-field col s12">
-            <input id="name" type="text" class="validate" name="name">
+            <input id="name" type="text" class="validate" name="name" required>
             <label for="name">Sport Name</label>
           </div>
         </div>

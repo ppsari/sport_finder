@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title></title>
+    <%- include partials/head.ejs %>
+  </head>
+  <body>
+    <%- include partials/header.ejs %>
+    <h1>Venue List</h1>
+    <div class="container">
+      <div class="row">
+        <table>
+          <thead>
+            <tr>
+                <th>ID</th>
+                <th>Venue Name</th>
+                <th>Venue Address</th>
+                <th>Contact</th>
+                <th>Action</th>
+            </tr>
+          </thead>
+          <tbody>
+            <% venues.forEach((venue)=>{ %>
+              <tr>
+                <td><%= venue.id %></td>
+                <td><%= venue.name %></td>
+                <td><%= venue.address %></td>
+                <td><%= venue.contact %></td>
+                <td>
+                  <a href="/admin/venue/update/<%= venue.id %>">Edit</a>
+                  <a href="/admin/sport/?venue_id=<%= venue.id %>">View Sports</a>
+                  <a href="/admin/venue/delete/<%= venue.id %>" onclick="return confirm('Are you sure?')"> Delete</a>
+                </td>
+              </tr>
+            <% })%>
+          </tbody>
+        </table>
+      </div>
+      <div class="row center-align">
+        <a href="/admin/venue/insert" class="btn waves-effect waves-light">Create New Venue</a>
+      </div>
+    </div>
+    <%- include partials/footer.ejs %>
+  </body>
+</html>

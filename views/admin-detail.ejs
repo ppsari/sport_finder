@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title></title>
+    <%- include partials/head.ejs %>
+  </head>
+  <body>
+    <%- include partials/header.ejs %>
+    <h1>Details for sport <%- details[0].sport_id %></h1>
+    <div class="container">
+      <div class="row">
+        <table>
+          <thead>
+            <tr>
+                <th>ID</th>
+                <th>Room</th>
+                <th>Capacity</th>
+                <th>Available</th>
+                <th>Booked</th>
+                <th>Action</th>
+            </tr>
+          </thead>
+
+          <tbody>
+            <% details.forEach(detail => { %>
+            <tr>
+              <td><%- detail.id %></td>
+              <td><%- detail.room %></td>
+              <td><%- detail.capacity %></td>
+              <td><%- detail.avail %></td>
+              <td><%- detail.booked %></td>
+              <td>
+                <a href="/admin/detail/update/<%- detail.id %>">Update</a>
+                <a href="/admin/detail/delete/<%- detail.id %>" onclick="return confirm('Are you sure?')">Delete</a>
+              </td>
+            </tr>
+            <% }) %>
+          </tbody>
+        </table>
+      </div>
+      <div class="row">
+        <a href="/admin/detail/insert?sport_id=<%= details[0].sport_id%>" class="btn waves-effect waves-light">Create New Detail</a>
+      </div>
+    </div>
+    <%- include partials/footer.ejs %>
+  </body>
+</html>

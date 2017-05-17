@@ -28,10 +28,12 @@ router.post('/insert', function(req, res, next) {
 });
 
 router.get('/update/:id', function(req, res, next) {
-  let id = req.params.id
+  let id = req.params.id;
+
   db.Venue.findById(id)
   .then(venue => {
-    res.render('venue-update', {venue})
+    // res.send(venue);
+    res.render('venue-update', {venue:venue})
   })
   .catch(err => {
     res.render('error', {message: "Invalid Venue ID", error: err })

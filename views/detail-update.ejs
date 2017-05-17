@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title></title>
+    <%- include partials/head.ejs %>
+  </head>
+  <body>
+    <%- include partials/header.ejs %>
+    <h1>Update Detail for Sport <%- detail.sport_id %></h1>
+    <div class="container">
+      <form class="col s12" action="/admin/detail/update/<%- detail.id %>" method="post">
+        <div class="row">
+          <div class="input-field col s12">
+            <input value="<%- detail.sport_id %>" id="sport_id" type="hidden" class="validate" name="sport_id">
+          </div>
+        </div>
+        <div class="row">
+          <div class="input-field col s12">
+            <input id="room" type="text" required class="validate" name="room" value="<%- detail.room %>">
+            <label for="room">Room</label>
+          </div>
+        </div>
+        <div class="row">
+          <div class="input-field col s12">
+            <input id="capacity" type="number" required class="validate" name="capacity" min="1" value="<%- detail.capacity %>">
+            <label for="capacity">Capacity</label>
+          </div>
+        </div>
+        <div class="row">
+          <div class="input-field col s12">
+            <input id="avail" type="text" class="validate" name="avail" value="<%- detail.avail %>">
+            <label for="avail">Availability</label>
+          </div>
+        </div>
+        <div class="row">
+          <div class="input-field col s12">
+            <input id="booked" type="text" class="validate" name="booked" value="<%- detail.booked %>">
+            <label for="booked">Booked</label>
+          </div>
+        </div>
+        <div class="row center-align">
+          <button class="btn waves-effect waves-light" type="submit">Update</button>
+        </div>
+      </form>
+    </div>
+    <%- include partials/footer.ejs %>
+  </body>
+</html>
