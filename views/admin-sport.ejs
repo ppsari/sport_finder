@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title></title>
+    <%- include partials/head.ejs %>
+  </head>
+  <body>
+    <%- include partials/header.ejs %>
+    <h1>Sports for venue <%- sports[0].venue_id %></h1>
+    <div class="container">
+      <div class="row">
+        <table>
+          <thead>
+            <tr>
+                <th>ID</th>
+                <th>Sport Name</th>
+                <th>Action</th>
+            </tr>
+          </thead>
+
+          <tbody>
+            <% sports.forEach(sport => { %>
+            <tr>
+              <td><%- sport.id %></td>
+              <td><%- sport.name %></td>
+              <td>
+                <a href="/admin/sport/update/<%- sport.id %>">Update</a>
+                <a href="/admin/sport/delete/<%- sport.id %>" onclick="return confirm("Are you sure?")">Delete</a>
+              </td>
+            </tr>
+            <% }) %>
+          </tbody>
+        </table>
+      </div>
+      <div class="row">
+        <a href="/admin/venue/insert" class="btn waves-effect waves-light">Create New Sport</a>
+      </div>
+    </div>
+    <%- include partials/footer.ejs %>
+  </body>
+</html>
