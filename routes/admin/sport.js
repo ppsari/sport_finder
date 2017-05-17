@@ -12,14 +12,14 @@ router.get('/', function(req, res, next) {
     res.render('admin-sport', { sports })
   })
   .catch(err => {
-    res.render('error', {message: "No Venue List", error: err })
+    res.render('error', {message: "No Venue List Found", error: err })
   })
 });
 
 router.get('/insert', function(req, res, next) {
   let venue_id = req.query.venue_id
   db.Venue.findById(venue_id)
-  .then((venue) => {
+  .then(() => {
     res.render('sport-create', {venue_id})
   })
   .catch(err => {
@@ -63,7 +63,7 @@ router.post('/update/:id', function(req, res, next) {
     })
   })
   .catch(err => {
-    res.render('error', {message: "Invalid Venue ID", error: err })
+    res.render('error', {message: "Invalid Sport ID", error: err })
   })
 });
 
