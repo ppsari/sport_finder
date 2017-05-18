@@ -5,10 +5,13 @@
     <%- include partials/head.ejs %>
   </head>
   <body>
+
     <%- include partials/header.ejs %>
-    <h1>Update Detail for Sport <%- detail.sport_id %></h1>
+    <h1>Update <%- detail.room%> for <%- sport_name %></h1>
     <div class="container">
+
       <form class="col s12" action="/admin/detail/update/<%- detail.id %>" method="post">
+
         <div class="row">
           <div class="input-field col s12">
             <input value="<%- detail.sport_id %>" id="sport_id" type="hidden" class="validate" name="sport_id">

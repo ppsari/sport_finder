@@ -6,7 +6,7 @@
   </head>
   <body>
     <%- include partials/header.ejs %>
-    <h1>Create Sport for Venue <%- venue_id %></h1>
+    <h1>Create Sport for <%- venue_name %></h1>
     <div class="container">
       <form class="col s12" action="/admin/sport/insert/?venue_id=<%- venue_id %>" method="post">
         <div class="row">

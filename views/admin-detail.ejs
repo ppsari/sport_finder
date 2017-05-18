@@ -6,7 +6,19 @@
   </head>
   <body>
     <%- include partials/header.ejs %>
-    <h1>Details for sport <%- details[0].sport_id %></h1>
+    <%
+      let name = '';
+      let sport_id = '';
+
+      if (flag_detail) {
+        name = details[0].Sport.name;
+        sport_id = details[0].Sport.id;
+      } else {
+        name = arr_sport.sport_name;
+        sport_id = arr_sport.sport_id
+      }
+    %>
+    <h1>Details for <%- name %></h1>
     <div class="container">
       <div class="row">
         <table>
@@ -23,7 +35,8 @@
           </thead>
 
           <tbody>
-            <% details.forEach(detail => { %>
+            <% if (flag_detail) {
+                details.forEach(detail => { %>
             <tr>
               <td><%- detail.id %></td>
               <td><%- detail.room %></td>
@@ -36,12 +49,13 @@
                 <a href="/admin/detail/delete/<%- detail.id %>" onclick="return confirm('Are you sure?')">Delete</a>
               </td>
             </tr>
-            <% }) %>
+            <%  })
+              }%>
           </tbody>
         </table>
       </div>
       <div class="row">
-        <a href="/admin/detail/insert?sport_id=<%= details[0].sport_id%>" class="btn waves-effect waves-light">Create New Detail</a>
+        <a href="/admin/detail/insert?sport_id=<%= sport_id%>" class="btn waves-effect waves-light">Create New Detail</a>
       </div>
     </div>
     <%- include partials/footer.ejs %>

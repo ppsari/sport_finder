@@ -11,7 +11,7 @@
       <div class="row">
         <h1><%- venue.name%> - <%- venue.Sports.name%></h1>
         <div class ="col s6">
-          <img class="responsive-img" src="http://3.bp.blogspot.com/-b0c-OMZPiHs/U4BQ8GDfqUI/AAAAAAAAAIw/VK7OJ6d6wn0/s1600/Viva2.JPG"/>
+          <img class="responsive-img" src="<%- venue.Sports.img %>"/>
         </div>
         <% venue.Sports.SportDetails.forEach((detail)=>{ %>
           <div class="col s2"><%- detail.room %></div>

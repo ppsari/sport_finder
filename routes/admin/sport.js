@@ -4,13 +4,28 @@ var db = require('../../models');
 
 /* GET users listing. */
 router.get('/', function(req, res, next) {
+
   let venue_id = req.query.venue_id
   db.Sport.findAll({
-    where: { venue_id: venue_id }
+    where: { venue_id: venue_id },
+    include: [{ model: db.Venue}]
   })
   .then(sports => {
     let breadcrumbs = [{url:'/admin/venue',teks:'Venue'},{url:'#',teks:'Sport'}]
-    res.render('admin-sport', { sports, breadcrumbs })
+
+    let flag_sport = (sports.length > 0) ? true : false;
+    if (!flag_sport) {
+      let arr_venue = {};
+      arr_venue.venue_id = venue_id;
+      db.Venue.findById(venue_id)
+      .then((venue)=>{
+        arr_venue.venue_name = venue.name;
+        res.render('admin-sport', {flag_sport,breadcrumbs,arr_venue })
+      });
+
+    } else {
+      res.render('admin-sport', { sports,breadcrumbs,flag_sport })
+    }
   })
   .catch(err => {
     res.render('error', {message: "No Venue List Found", error: err })
@@ -20,8 +35,8 @@ router.get('/', function(req, res, next) {
 router.get('/insert', function(req, res, next) {
   let venue_id = req.query.venue_id
   db.Venue.findById(venue_id)
-  .then(() => {
-    res.render('sport-create', {venue_id})
+  .then((venue) => {
+    res.render('sport-create', {venue_id,venue_name:venue.name})
   })
   .catch(err => {
     res.render('error', {message: "Invalid Venue", error: err })
@@ -43,7 +58,11 @@ router.get('/update/:id', function(req, res, next) {
   let id = req.params.id
   db.Sport.findById(id)
   .then(sport => {
-    res.render('sport-update', {sport})
+      db.Venue.findById(sport.venue_id)
+      .then((venue)=>{
+        res.render('sport-update', {sport,venue_name:venue.name})
+      })
+
   })
   .catch(err => {
     res.render('error', {message: "Invalid Sport ID", error: err })
