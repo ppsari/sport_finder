@@ -3,6 +3,7 @@ module.exports = function(sequelize, DataTypes) {
   var Sport = sequelize.define('Sport', {
     venue_id: DataTypes.INTEGER,
     name: DataTypes.STRING,
+    img: DataTypes.STRING,
     createdAt: DataTypes.DATE,
     updatedAt: DataTypes.DATE
   }, {
