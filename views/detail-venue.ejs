@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title></title>
+    <%- include partials/head.ejs %>
+  </head>
+  <body>
+    <%- include partials/header.ejs %>
+
+    <div class="container">
+      <div class="row">
+        <h1><%- venue.name%> - <%- venue.Sports.name%></h1>
+        <div class ="col s6">
+          <img class="responsive-img" src="http://3.bp.blogspot.com/-b0c-OMZPiHs/U4BQ8GDfqUI/AAAAAAAAAIw/VK7OJ6d6wn0/s1600/Viva2.JPG"/>
+        </div>
+        <% venue.Sports.SportDetails.forEach((detail)=>{ %>
+          <div class="col s2"><%- detail.room %></div>
+          <div class="col s2">
+            <div class="row">Price</div>
+            <div class="row">Availability</div>
+            <div class="row">Capacity</div>
+          </div>
+          <div class="col s2">
+            <div class="row"><%- detail.price %></div>
+            <div class="row"><%- detail.avail %></div>
+            <div class="row"><%- detail.capacity %></div>
+          </div>
+        <% })%>
+        <div class="col s6">CP : <%- venue.contact %></div>
+      </div>
+    </div>
+    <%- include partials/footer.ejs %>
+  </body>
+</html>

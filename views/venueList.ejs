@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title></title>
+    <%- include partials/head.ejs %>
+  </head>
+  <body>
+    <%- include partials/header.ejs %>
+    <h1>Search Result - Venue</h1>
+    <div class="container">
+      <div class="row">
+        <table>
+          <thead>
+            <tr>
+                <th>Name</th>
+                <th>Address</th>
+                <th>All Sport</th>
+                <th>Detail</th>
+            </tr>
+          </thead>
+
+          <tbody>
+            <% venues.forEach((venue)=>{%>
+              <tr>
+                <td><%- venue.name %></td>
+                <td><%- venue.address %></td>
+                <td><%- venue.allsport %></td>
+                <td>
+                  <a href="/venue/?venue_id=<%- venue.id%>&sport_id=<%- sport_id%>" target="_blank">View</a>
+                </td>
+              </tr>
+            <% }) %>
+
+          </tbody>
+        </table>
+      </div>
+      <div class="row">
+        <a href="" class="btn waves-effect waves-light"></a>
+      </div>
+    </div>
+    <%- include partials/footer.ejs %>
+  </body>
+</html>

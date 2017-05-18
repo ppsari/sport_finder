@@ -7,19 +7,27 @@ router.get('/', function(req, res, next) {
 
   let location = req.query.location;
   let sport = req.query.sport;
-  db.Venue.findAll({where: {location:location}, include: {model : db.Sport} }   )
-  .then((venues)=>{
-    venues = venues.filter((venue) => {
-      let idx = -1;
-      if (venue.Sports !== null && typeof venue.Sports !== 'undefined')
-      idx = venue.Sports.findIndex((sp) => sp.name === sport );//end venues.sport
-      if (idx !== -1) return venue.Sports;
-    });//end venues.filter
-    res.render('venueList',{venues});
-  })
-  .catch((err)=>{
-    res.send('Location invalid!');
-  })
+
+  db.Venue.findAll({
+      where: { location: location }, include: {model: db.Sport }
+    })
+    .then((venues) => {
+      venues = venues.filter((venue) => {
+        let allsport = [];
+        let idx =-1;
+        venue.Sports.forEach((sp, i) => {
+          allsport.push(sp.name);
+          if (sp.name === sport) idx = i;
+        });
+        allsport = allsport.filter((v, i, a) => a.indexOf(v) === i).join(', ');
+        venue.allsport = allsport;
+        if (idx !== -1) return venue;
+      });
+      res.render('venueList',{venues,sport_id:sport});
+    })
+    .catch((err) => {
+      res.send('Location invalid!');
+    })
 });
 
 module.exports = router;

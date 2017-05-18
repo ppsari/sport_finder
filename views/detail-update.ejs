@@ -28,6 +28,12 @@
         </div>
         <div class="row">
           <div class="input-field col s12">
+            <input id="price" type="number" class="validate" min=10000 name="price" value="<%- detail.price%>">
+            <label for="price">Price</label>
+          </div>
+        </div>
+        <div class="row">
+          <div class="input-field col s12">
             <input id="avail" type="text" class="validate" name="avail" value="<%- detail.avail %>">
             <label for="avail">Availability</label>
           </div>
