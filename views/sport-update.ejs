@@ -20,6 +20,15 @@
             <label for="name">Sport Name</label>
           </div>
         </div>
+        <div class="row">
+          <div class="input-field col s12">
+            <input id="img_sport" type="url" class="validate" name="img" required value="<%- sport.img%>" onfocusout="fillImg()">
+            <label for="img_sport">Image</label>
+          </div>
+        </div>
+        <div class="input-field col s12">
+          <img src="<%- sport.img%>" id="shw_img_sport" class="responsive-img"/>
+        </div>
         <div class="row center-align">
           <button class="btn waves-effect waves-light" type="submit">Update</button>
         </div>
