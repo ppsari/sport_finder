@@ -4,43 +4,52 @@ var db = require('../../models');
 
 /* GET users listing. */
 router.get('/', function(req, res, next) {
-  let sport_id = req.query.sport_id
+  let sport_id = req.query.sport_id;
+  let venue_id = '';
   let arr_sport = {}; //if detail undefined
 
-  db.SportDetail.findAll({
-    where: { sport_id: sport_id },
-    include: [{ model: db.Sport}]
-  })
-  .then(details => {
-    let flag_detail = (details.length > 0) ? true : false;
-    if (!flag_detail) {
-      arr_sport.sport_id = sport_id;
-      db.Sport.findById(sport_id)
-      .then((sport)=>{
-        arr_sport.sport_name = sport.name;
-        res.render('admin-detail', {flag_detail,arr_sport })
+  db.Sport.findById(sport_id)
+  .then(sport=>{
+    venue_id = sport.venue_id;
+    arr_sport.sport_id = sport_id;
+    arr_sport.sport_name = sport.name;
+    let breadcrumbs = [{url:`/admin/venue/`,teks:'Venue'},{url:`/admin/sport?venue_id=${venue_id}`,teks:'Sport'}]
 
-        // res.send(arr_sport);
-      });
+    db.SportDetail.findAll({
+      where: { sport_id: sport_id }
+    })
+    .then(details => {
+      let flag_detail = (details.length > 0) ? true : false;
+      if (!flag_detail) {
+        res.render('admin-detail', {flag_detail,arr_sport,breadcrumbs })
+      } else {
+        details.sport_name = arr_sport.sport_name
+        details.sport_id = arr_sport.sport_id
+        res.render('admin-detail', { details,flag_detail,breadcrumbs })
+      }
 
-    } else {
-      res.render('admin-detail', { details,flag_detail })
-    }
+    })
+    .catch(err => {
+      res.render('error', {message: "No Sport Found", error: err })
+    })
 
   })
-  .catch(err => {
-    res.render('error', {message: "No Sport Found", error: err })
-  })
+
+
+
+
 });
 
 router.get('/insert', function(req, res, next) {
   let sport_id = req.query.sport_id
   db.Sport.findById(sport_id)
   .then((sport) => {
-    res.render('detail-create', {sport_id,sport_name:sport.name})
+    let breadcrumbs = [{url:`/admin/venue/`,teks:'Venue'},{url:`/admin/sport?venue_id=${sport.venue_id}`,teks:'Sport'},{url:'',teks:'Insert'}]
+
+    res.render('detail-create', {sport_id,sport_name:sport.name,breadcrumbs:breadcrumbs})
   })
   .catch(err => {
-    res.render('error', {message: "Invalid Sport", error: err })
+    res.render('error', {message: "Invalid Sport", error: err,breadcrumbs:breadcrumbs })
   })
 });
 
@@ -61,7 +70,8 @@ router.get('/update/:id', function(req, res, next) {
   .then(detail => {
     db.Sport.findById(detail.sport_id)
     .then((sport)=>{
-      res.render('detail-update', {detail,sport_name:sport.name})
+      let breadcrumbs = [{url:`/admin/venue/`,teks:'Venue'},{url:`/admin/sport?venue_id=${sport.venue_id}`,teks:'Sport'},{url:'',teks:'Update'}]
+      res.render('detail-update', {detail,sport_name:sport.name,breadcrumbs:breadcrumbs})
     })
 
   })

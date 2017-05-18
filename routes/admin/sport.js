@@ -11,7 +11,7 @@ router.get('/', function(req, res, next) {
     include: [{ model: db.Venue}]
   })
   .then(sports => {
-    let breadcrumbs = [{url:'/admin/venue',teks:'Venue'},{url:'#',teks:'Sport'}]
+    let breadcrumbs = [{url:`/admin/venue/`,teks:'Venue'},{url:'',teks:'Sport'}]
 
     let flag_sport = (sports.length > 0) ? true : false;
     if (!flag_sport) {
@@ -20,6 +20,7 @@ router.get('/', function(req, res, next) {
       db.Venue.findById(venue_id)
       .then((venue)=>{
         arr_venue.venue_name = venue.name;
+        // console.log(arr_venue);
         res.render('admin-sport', {flag_sport,breadcrumbs,arr_venue })
       });
 
@@ -36,7 +37,8 @@ router.get('/insert', function(req, res, next) {
   let venue_id = req.query.venue_id
   db.Venue.findById(venue_id)
   .then((venue) => {
-    res.render('sport-create', {venue_id,venue_name:venue.name})
+    let breadcrumbs = [{url:`/admin/venue/`,teks:'Venue'},{url:`/admin/sport?venue_id=${venue_id}`,teks:'Sport'},{url:'',teks:'Insert'}]
+    res.render('sport-create', {venue_id,venue_name:venue.name,breadcrumbs})
   })
   .catch(err => {
     res.render('error', {message: "Invalid Venue", error: err })
@@ -60,7 +62,9 @@ router.get('/update/:id', function(req, res, next) {
   .then(sport => {
       db.Venue.findById(sport.venue_id)
       .then((venue)=>{
-        res.render('sport-update', {sport,venue_name:venue.name})
+        let breadcrumbs = [{url:`/admin/venue/`,teks:'Venue'},{url:`/admin/sport?venue_id=${sport.venue_id}`,teks:'Sport'},{url:'',teks:'Update'}]
+        // res.render('sport-create', {venue_id,venue_name:venue.name,breadcrumbs})
+        res.render('sport-update', {sport,venue_name:venue.name,breadcrumbs})
       })
 
   })

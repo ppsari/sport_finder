@@ -5,19 +5,21 @@
     <%- include partials/head.ejs %>
   </head>
   <body>
-    <%- include partials/header.ejs %>
     <%
       let name = '';
       let sport_id = '';
 
       if (flag_detail) {
-        name = details[0].Sport.name;
-        sport_id = details[0].Sport.id;
+        name = details.sport_name;
+        sport_id = details.sport_id;
       } else {
         name = arr_sport.sport_name;
         sport_id = arr_sport.sport_id
       }
     %>
+    <%- include partials/header.ejs %>
+    <%- include partials/breadcrumbs.ejs %>
+
     <h1>Details for <%- name %></h1>
     <div class="container">
       <div class="row">
