@@ -5,8 +5,8 @@ var db = require('../models');
 /* GET home page. */
 router.get('/', function(req, res, next) {
   //hardcode location & sport
-  res.render('index',{});
-
+  let locations = ["Jakarta Pusat", "Jakarta Utara", "Jakarta Barat", "Jakarta Timur", "Jakarta Selatan"]
+  res.render('index', {locations})
 });
 
 module.exports = router;

@@ -163,9 +163,19 @@ module.exports = {
       createdAt: new Date(),
       updatedAt: new Date()
     }, {
-      id: 17,
+      id: 16,
       sport_id: 11,
       room: "Lapangan 1",
+      price: 50000,
+      capacity: 4,
+      avail: "",
+      booked: "",
+      createdAt: new Date(),
+      updatedAt: new Date()
+    }, {
+      id: 17,
+      sport_id: 11,
+      room: "Lapangan 2",
       price: 50000,
       capacity: 4,
       avail: "",
@@ -174,9 +184,9 @@ module.exports = {
       updatedAt: new Date()
     }, {
       id: 18,
-      sport_id: 11,
-      room: "Lapangan 2",
-      price: 50000,
+      sport_id: 12,
+      room: "Lapangan 1",
+      price: 40000,
       capacity: 4,
       avail: "",
       booked: "",
@@ -185,7 +195,7 @@ module.exports = {
     }, {
       id: 19,
       sport_id: 12,
-      room: "Lapangan 1",
+      room: "Lapangan 2",
       price: 40000,
       capacity: 4,
       avail: "",
@@ -194,9 +204,9 @@ module.exports = {
       updatedAt: new Date()
     }, {
       id: 20,
-      sport_id: 12,
-      room: "Lapangan 2",
-      price: 40000,
+      sport_id: 13,
+      room: "Lapangan 1",
+      price: 30000,
       capacity: 4,
       avail: "",
       booked: "",
@@ -205,7 +215,7 @@ module.exports = {
     }, {
       id: 21,
       sport_id: 13,
-      room: "Lapangan 1",
+      room: "Lapangan 2",
       price: 30000,
       capacity: 4,
       avail: "",
@@ -214,16 +224,6 @@ module.exports = {
       updatedAt: new Date()
     }, {
       id: 22,
-      sport_id: 13,
-      room: "Lapangan 2",
-      price: 30000,
-      capacity: 4,
-      avail: "",
-      booked: "",
-      createdAt: new Date(),
-      updatedAt: new Date()
-    }, {
-      id: 23,
       sport_id: 14,
       room: "Lapangan 1",
       price: 35000,
@@ -233,7 +233,7 @@ module.exports = {
       createdAt: new Date(),
       updatedAt: new Date()
     }, {
-      id: 24,
+      id: 23,
       sport_id: 14,
       room: "Lapangan 2",
       price: 35000,
@@ -243,7 +243,7 @@ module.exports = {
       createdAt: new Date(),
       updatedAt: new Date()
     }, {
-      id: 25,
+      id: 24,
       sport_id: 15,
       room: "Lapangan 1",
       price: 30000,
@@ -253,7 +253,7 @@ module.exports = {
       createdAt: new Date(),
       updatedAt: new Date()
     }, {
-      id: 26,
+      id: 25,
       sport_id: 15,
       room: "Lapangan 2",
       price: 30000,
