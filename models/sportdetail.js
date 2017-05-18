@@ -1,6 +1,6 @@
 'use strict';
 module.exports = function(sequelize, DataTypes) {
-  var Detail = sequelize.define('Detail', {
+  var SportDetail = sequelize.define('SportDetail', {
     sport_id: DataTypes.INTEGER,
     capacity: DataTypes.INTEGER,
     room: DataTypes.STRING,
@@ -12,9 +12,9 @@ module.exports = function(sequelize, DataTypes) {
     classMethods: {
       associate: function(models) {
         // associations can be defined here
-        Detail.belongsTo(models.Sport,{foreignKey: 'sport_id'});
+        SportDetail.belongsTo(models.Sport,{foreignKey: 'sport_id'});
       }
     }
   });
-  return Detail;
+  return SportDetail;
 };

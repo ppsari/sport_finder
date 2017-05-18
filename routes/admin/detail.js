@@ -5,7 +5,7 @@ var db = require('../../models');
 /* GET users listing. */
 router.get('/', function(req, res, next) {
   let sport_id = req.query.sport_id
-  db.Detail.findAll({
+  db.SportDetail.findAll({
     where: { sport_id: sport_id }
   })
   .then(details => {
@@ -29,7 +29,7 @@ router.get('/insert', function(req, res, next) {
 
 router.post('/insert/', function(req, res, next) {
   let sport_id = req.body.sport_id
-  db.Detail.create(req.body)
+  db.SportDetail.create(req.body)
   .then(() => {
     res.redirect(`/admin/detail?sport_id=${sport_id}`)
   })
@@ -40,18 +40,18 @@ router.post('/insert/', function(req, res, next) {
 
 router.get('/update/:id', function(req, res, next) {
   let id = req.params.id
-  db.Detail.findById(id)
+  db.SportDetail.findById(id)
   .then(detail => {
     res.render('detail-update', {detail})
   })
   .catch(err => {
-    res.render('error', {message: "Invalid Detail ID", error: err })
+    res.render('error', {message: "Invalid SportDetail ID", error: err })
   })
 });
 
 router.post('/update/:id', function(req, res, next) {
   let id = req.params.id
-  db.Detail.findById(id)
+  db.SportDetail.findById(id)
   .then(detail => {
     detail.update(req.body)
     .then(() => {
@@ -63,13 +63,13 @@ router.post('/update/:id', function(req, res, next) {
     })
   })
   .catch(err => {
-    res.render('error', {message: "Invalid Detail ID", error: err })
+    res.render('error', {message: "Invalid SportDetail ID", error: err })
   })
 });
 
 router.get('/delete/:id', function(req, res, next) {
   let id = req.params.id
-  db.Detail.findById(id)
+  db.SportDetail.findById(id)
   .then(detail => {
     let sport_id = detail.sport_id
     detail.destroy()
