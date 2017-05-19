@@ -28,9 +28,9 @@
                 <td><%= venue.address %></td>
                 <td><%= venue.contact %></td>
                 <td>
-                  <a href="/admin/venue/update/<%= venue.id %>">Edit</a>
-                  <a href="/admin/sport/?venue_id=<%= venue.id %>">View Sports</a>
-                  <a href="/admin/venue/delete/<%= venue.id %>" onclick="return confirm('Are you sure?')"> Delete</a>
+                  <a href="/admin/venue/update/<%= venue.id %>"><i class="material-icons">mode_edit</i></a>
+                  <a href="/admin/sport/?venue_id=<%= venue.id %>"><i class="material-icons">view_list</i></a>
+                  <a href="/admin/venue/delete/<%= venue.id %>" onclick="return confirm('Are you sure?')"><i class="material-icons">delete</i></a>
                 </td>
               </tr>
             <% })%>

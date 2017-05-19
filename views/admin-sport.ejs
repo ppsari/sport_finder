@@ -38,9 +38,9 @@
               <td><%- sport.id %></td>
               <td><%- sport.name %></td>
               <td>
-                <a href="/admin/sport/update/<%- sport.id %>">Update</a>
-                <a href="/admin/detail/?sport_id=<%- sport.id %>">View Details</a>
-                <a href="/admin/sport/delete/<%- sport.id %>" onclick="return confirm('Are you sure?')">Delete</a>
+                <a href="/admin/sport/update/<%- sport.id %>"><i class="material-icons">mode_edit</i></a></a>
+                <a href="/admin/detail/?sport_id=<%- sport.id %>"><i class="material-icons">view_list</i></a>
+                <a href="/admin/sport/delete/<%- sport.id %>" onclick="return confirm('Are you sure?')"><i class="material-icons">delete</i></a>
               </td>
             </tr>
             <%    })
