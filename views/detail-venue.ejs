@@ -21,7 +21,8 @@
             <div class="row">Capacity</div>
           </div>
           <div class="col s2">
-            <div class="row"><%- detail.price %></div>
+            <div class="row">Rp <%- detail.price_user %></div>
+            <% if(detail.avail === "") detail.avail = "-" %>
             <div class="row"><%- detail.avail %></div>
             <div class="row"><%- detail.capacity %></div>
           </div>

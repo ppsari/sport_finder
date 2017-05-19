@@ -20,6 +20,12 @@
   	});
   	$('[name=DataTables_Table_0_length]').attr('style','display:inline; float:left');
   } );
+
+  function changePrice () {
+    let priceu = $(' [name="price"] ').val();
+    console.log(priceu);
+    $('#price_user').val(new Intl.NumberFormat('id').format(priceu));
+  }
 </script>
 
 

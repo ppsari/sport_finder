@@ -5,6 +5,7 @@ module.exports = function(sequelize, DataTypes) {
     capacity: DataTypes.INTEGER,
     room: DataTypes.STRING,
     price: DataTypes.INTEGER,
+    price_user: DataTypes.STRING,
     avail: DataTypes.STRING,
     booked: DataTypes.STRING,
     createdAt: DataTypes.DATE,

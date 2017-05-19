@@ -31,8 +31,14 @@
         </div>
         <div class="row">
           <div class="input-field col s12">
-            <input id="price" type="number" class="validate" min=10000 name="price" value="<%- detail.price%>">
+            <input id="price" type="number" class="validate" min=10000 name="price" onkeyup="changePrice()" value="<%- detail.price%>">
             <label for="price">Price</label>
+          </div>
+        </div>
+        <div class="row">
+          <div class="input-field col s12">
+            <input id="price_user" type="text" class="validate" name="price_user" value="<%- detail.price_user%>" readonly>
+            <label for="price_user">User Price</label>
           </div>
         </div>
         <div class="row">
