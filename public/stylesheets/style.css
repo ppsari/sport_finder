@@ -2,11 +2,21 @@ body {
   font-family: 'Oswald', sans-serif;
   /*text-transform: uppercase;*/
 }
-
-a {
-  color: #00B7FF;
+h1 {
+  text-transform: uppercase;
+}
+p {
+  font-family: Helvetica, Arial, sans-serif;
+  text-transform: uppercase;
 }
 
+.material-icons {
+  color:"orangered" !important;
+}
+
+.btn {
+  background-color:"orangered"!important;
+}
 .iris {
     background-image: url("/images/jumbotron.jpg");
     background-repeat: no-repeat;
