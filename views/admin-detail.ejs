@@ -48,8 +48,10 @@
               <td><%- detail.avail %></td>
               <td><%- detail.booked %></td>
               <td>
-                <a href="/admin/detail/update/<%- detail.id %>">Update</a>
-                <a href="/admin/detail/delete/<%- detail.id %>" onclick="return confirm('Are you sure?')">Delete</a>
+                <a href="/admin/detail/update/<%- detail.id %>"><i class="material-icons">mode_edit</i></a>
+                <a href="/admin/detail/delete/<%- detail.id %>" onclick="return confirm('Are you sure?')">
+      <i class="material-icons">delete</i>
+            </a>
               </td>
             </tr>
             <%  })
