@@ -1,7 +1,8 @@
 .rumah {
 background: url("https://s3.amazonaws.com/codecademy-content/projects/move/footer.jpg") no-repeat center center;
 background-size: cover;
-height: 600px;
+height: 100vh;
+width: 100vw;
 text-align: center;
 }
 
