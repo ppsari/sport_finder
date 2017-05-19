@@ -1,0 +1,32 @@
+<div class = "iris">
+   <div class = "card transparent z-depth-5">
+   </div>
+   <div class="input-field col s12">
+     <form method="post">
+       <div class="row">
+         <div class="col s6">
+           <select name="location" style="display:block" required>
+             <option value="" disabled selected>Choose location</option>
+             <% locations.forEach(location => { %>
+                <option value="<%- location %>"><%- location %></option>
+             <% }) %>
+           </select>
+         </div>
+         <div class="col s6">
+           <select name="sport" style="display:block" required>
+             <option value="" disabled selected>Choose sport</option>
+             <% sports.forEach(sport => { %>
+                <option value="<%- sport %>"><%- sport %></option>
+             <% }) %>
+           </select>
+         </div>
+         <div class="col s6 offset-s3 center">
+
+           <button class="btn waves-effect waves-light rumah"type="submit" name="button">Search</button>
+         </div>
+       </div>
+
+
+     </form>
+   </div>
+</div>
