@@ -11,13 +11,13 @@
          </div>
          <div class="input-field col s12">
            <form method="post">
-             <select name="location" style="display:block">
+             <select name="location" style="display:block" required>
                <option value="" disabled selected>Choose location</option>
                <% locations.forEach(location => { %>
                   <option value="<%- location %>"><%- location %></option>
                <% }) %>
              </select>
-             <select name="sport" style="display:block">
+             <select name="sport" style="display:block" required>
                <option value="" disabled selected>Choose sport</option>
                <% sports.forEach(sport => { %>
                   <option value="<%- sport %>"><%- sport %></option>
