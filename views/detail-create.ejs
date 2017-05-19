@@ -6,9 +6,10 @@
   </head>
   <body>
     <%- include partials/header.ejs %>
-    
-    <h1>Create Detail for <%- sport_name %></h1>
+
+
     <div class="container">
+      <h1>Create Detail for <%- sport_name %></h1>
       <form class="col s12" action="/admin/detail/insert/?sport_id=<%- sport_id %>" method="post">
         <div class="row">
           <div class="input-field col s12">

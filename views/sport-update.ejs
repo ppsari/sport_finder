@@ -6,8 +6,8 @@
   </head>
   <body>
     <%- include partials/header.ejs %>
-    <h1>Update <%- sport.name%> for <%- venue_name %></h1>
     <div class="container">
+      <h1>Update <%- sport.name%> for <%- venue_name %></h1>
       <form class="col s12" action="/admin/sport/update/<%- sport.id %>" method="post">
         <div class="row">
           <div class="input-field col s12">

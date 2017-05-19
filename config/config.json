@@ -1,7 +1,7 @@
 {
   "development": {
-    "username": "ppsari",
-    "password": "ppsari123",
+    "username": "hakiemaul",
+    "password": "290793",
     "database": "sportfinder",
     "host": "127.0.0.1",
     "dialect": "postgres"
